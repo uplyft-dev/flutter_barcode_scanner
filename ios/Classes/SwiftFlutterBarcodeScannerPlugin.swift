@@ -124,11 +124,7 @@ public class SwiftFlutterBarcodeScannerPlugin: NSObject, FlutterPlugin, ScanBarc
                                     cancel = "Abbrechen";
                                     break;
                                 case "en":
-                                    message = "We need to use the camera to scan codes.";
-                                    title = "Allow camera permissions?";
-                                    grant = "Yes";
-                                    cancel = "Cancel";
-                                    break;
+                                    fallthrough;
                                 default:
                                     message = "We need to use the camera to scan codes.";
                                     title = "Allow camera permissions?";
