@@ -112,15 +112,24 @@ public class SwiftFlutterBarcodeScannerPlugin: NSObject, FlutterPlugin, ScanBarc
                             }
                         } else {
                             let langCode = Locale.current.languageCode;
-                            var message = "We need to use the camera to scan codes.";
-                            var title = "Allow camera permissions?";
-                            var grant = "Yes";
-                            var cancel = "Cancel";
-                            if(langCode == "de") {
-                                message = "Zum Scannen von Codes brauchen wir Zugriff auf die Kamera.";
-                                title = "Kameraberechtigungen zulassen?";
-                                grant = "Ja";
-                                cancel = "Abbrechen";
+                            var message;
+                            var title;
+                            var grant;
+                            var cancel;
+                            switch(langCode) {
+                                case "de":
+                                    message = "Zum Scannen von Codes brauchen wir Zugriff auf die Kamera.";
+                                    title = "Kameraberechtigungen zulassen?";
+                                    grant = "Ja";
+                                    cancel = "Abbrechen";
+                                    break;
+                                case "en": 
+                                default:
+                                    message = "We need to use the camera to scan codes.";
+                                    title = "Allow camera permissions?";
+                                    grant = "Yes";
+                                    cancel = "Cancel";
+                                    break;
                             }
                             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
                             
