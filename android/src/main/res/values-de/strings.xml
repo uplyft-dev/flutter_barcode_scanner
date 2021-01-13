@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="ok">OK</string>
-    <string name="permission_camera_rationale">Zum Scannen von Codes brauchen wir Zugriff auf die Kamera</string>
+    <string name="permission_camera_rationale">Zum Scannen von Codes brauchen wir Zugriff auf die Kamera.</string>
     <string name="allow_permissions">Erlauben</string>
     <string name="no_camera_permission">Wir brauchen Zugriff auf die Kamera. Bitte erlaube dies in den Systemeinstellungen.</string>
     <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
