@@ -111,13 +111,34 @@ public class SwiftFlutterBarcodeScannerPlugin: NSObject, FlutterPlugin, ScanBarc
                                 
                             }
                         } else {
-                            let alert = UIAlertController(title: "Action needed", message: "Please grant camera permission to use barcode scanner", preferredStyle: .alert)
+                            let langCode = Locale.current.languageCode;
+                            var message: String;
+                            var title: String;
+                            var grant: String;
+                            var cancel: String;
+                            switch(langCode) {
+                                case "de":
+                                    message = "Zum Scannen von Codes brauchen wir Zugriff auf die Kamera.";
+                                    title = "Kameraberechtigungen zulassen?";
+                                    grant = "Ja";
+                                    cancel = "Abbrechen";
+                                    break;
+                                case "en":
+                                    fallthrough;
+                                default:
+                                    message = "We need to use the camera to scan codes.";
+                                    title = "Allow camera permissions?";
+                                    grant = "Yes";
+                                    cancel = "Cancel";
+                                    break;
+                            }
+                            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
                             
-                            alert.addAction(UIAlertAction(title: "Grant", style: .default, handler: { action in
+                            alert.addAction(UIAlertAction(title: grant, style: .default, handler: { action in
                                 UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
                             }))
                             
-                            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                            alert.addAction(UIAlertAction(title: cancel, style: .cancel))
                             
                             SwiftFlutterBarcodeScannerPlugin.viewController.present(alert, animated: true)
                         }
