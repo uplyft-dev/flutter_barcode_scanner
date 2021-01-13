@@ -112,10 +112,10 @@ public class SwiftFlutterBarcodeScannerPlugin: NSObject, FlutterPlugin, ScanBarc
                             }
                         } else {
                             let langCode = Locale.current.languageCode;
-                            var message;
-                            var title;
-                            var grant;
-                            var cancel;
+                            var message: String;
+                            var title: String;
+                            var grant: String;
+                            var cancel: String;
                             switch(langCode) {
                                 case "de":
                                     message = "Zum Scannen von Codes brauchen wir Zugriff auf die Kamera.";
